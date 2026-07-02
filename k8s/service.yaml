@@ -3,11 +3,12 @@ kind: Service
 metadata:
   name: go-kubernetes-demo
   namespace: demo
+  labels:
+    app: go-kubernetes-demo
 spec:
   selector:
     app: go-kubernetes-demo
   ports:
-    - protocol: TCP
+    - name: http
       port: 80
       targetPort: 8080
-  type: ClusterIP

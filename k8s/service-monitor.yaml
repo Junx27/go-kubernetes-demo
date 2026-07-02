@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: go-kubernetes-demo
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: go-kubernetes-demo
+
+  namespaceSelector:
+    matchNames:
+      - demo
+
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
