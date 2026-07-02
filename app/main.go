@@ -17,7 +17,7 @@ func main() {
 		metrics.HttpRequests.Inc()
 
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello Kubernetes",
+			"message": "Hello Kubernetes V2",
 		})
 	})
 
