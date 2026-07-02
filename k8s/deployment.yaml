@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-kubernetes-demo
+  namespace: demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-kubernetes-demo
+  template:
+    metadata:
+      labels:
+        app: go-kubernetes-demo
+    spec:
+      containers:
+        - name: go-kubernetes-demo
+          image: junx27/go-kubernetes-demo:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
