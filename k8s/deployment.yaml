@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: go-kubernetes-demo
-          image: junx27/go-kubernetes-demo:v2
+          image: junx27/go-kubernetes-demo:v3
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
