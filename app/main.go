@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	metrics.Register()
 	r := gin.Default()
 
 	r.GET("/", func(c *gin.Context) {
@@ -17,13 +18,7 @@ func main() {
 		metrics.HttpRequests.Inc()
 
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello Kubernetes V2",
-		})
-	})
-
-	r.GET("/health", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"status": "UP",
+			"message": "Hello Kubernetes with metric",
 		})
 	})
 
@@ -36,5 +31,4 @@ func main() {
 	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
 	r.Run(":8080")
-	metrics.Register()
 }
